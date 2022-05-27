@@ -1,0 +1,26 @@
+---
+title: "Intro-to-R-Basics-Notes"
+output:
+  html_document:
+    mathjax: local
+    self_contained: false
+    theme: dark
+    highlight: breezedark
+date: '2022-05-27'
+--- 
+<hr>
+This document is the first of my `R`{.bash}-markdown files. This document contains code
+and $\LaTeX$. To use the $\LaTeX$ syntax, use the following in `R`{.bash}-markdown.
+```r
+output:
+  html_document:
+    mathjax: local
+    self_contained: false
+```
+## Arithmetic in R
+Arithmetic in `R`{.bash} is quite simple. You can run it in the Console or run it line by line in the source file.
+R supports $+,-,/,\cdot,$ and even modular arithmetic. Below are some examples.
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+#
