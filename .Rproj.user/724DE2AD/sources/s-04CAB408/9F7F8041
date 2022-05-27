@@ -3,7 +3,7 @@
     "path": "~/Udemy/R Programming/my-r-notes/r-notes/r-notes.Rmd",
     "project_path": "r-notes.Rmd",
     "type": "r_markdown",
-    "hash": "303071780",
+    "hash": "0",
     "contents": "",
     "dirty": false,
     "created": 1653675071818.0,
@@ -13,15 +13,15 @@
         "tempName": "Untitled1",
         "source_window_id": "",
         "Source": "Source",
-        "cursorPosition": "17,25",
-        "scrollLine": "0"
+        "cursorPosition": "105,4",
+        "scrollLine": "81"
     },
     "folds": "",
-    "lastKnownWriteTime": 1653675086,
+    "lastKnownWriteTime": 1653684798,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1653675086917,
+    "last_content_update": 1653684798583,
     "read_only": false,
     "read_only_alternatives": []
 }

@@ -1,0 +1,17 @@
+#START
+v1 <- c(100,200,300)
+v2 <- c(a,b,c)
+v1[1]
+temps[5]
+temps[2:4] #Splicing
+temps[c(1,7)] #Grab index 1 and index 7
+temps["Mon"] #Returns the number assoicated with "Mon"
+temps[c("Tues", "Fri")]
+#Filter out values less than 2
+vnum <- c(1,2,3,4)
+vchar <- c('a', 'b', 'c', 'd')
+names(vnum) <- vchar
+vnum[vnum > 2] #Returns 3 and 4
+vnum > 2
+myFilter <- vnum>2
+vnum[myFilter]

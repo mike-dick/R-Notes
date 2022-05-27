@@ -279,9 +279,117 @@ simple. You can run it in the Console or run it line by line in the
 source file. R supports <span
 class="math inline">\(+,-,/,\cdot,\)</span> and even modular arithmetic.
 Below are some examples.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">2</span> <span class="co">#Addition.</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dv">5-2</span> <span class="co">#Subtraction.</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">*</span><span class="dv">2</span> <span class="co">#Multiplication.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span><span class="sc">/</span><span class="dv">2</span> <span class="co">#Division.</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">%%</span> <span class="dv">2</span> <span class="co">#Modular Arthimetic.</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>(<span class="dv">5</span><span class="sc">*</span><span class="dv">2</span>) <span class="sc">+</span> (<span class="dv">5-3</span>) <span class="co">#Order of operations.</span></span></code></pre></div>
 </div>
-<div id="section" class="section level1">
-<h1></h1>
+<div id="variables" class="section level2">
+<h2>Variables</h2>
+<p>When it comes to variables in R there is a different assignment
+operator. This is the arrow operator <code
+class="sourceCode r"><span class="ot">&lt;-</span></code> Below is how
+to use this operator on assigning <code
+class="sourceCode bash"><span class="ex">var</span></code> the value
+<code class="sourceCode bash"><span class="ex">5</span></code>.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>var <span class="ot">&lt;-</span> <span class="dv">5</span> <span class="co">#5 is now stored as the variable &quot;var.&quot;</span></span></code></pre></div>
+<p>The naming convention in R is variables are either camel case, or the
+space between words is represented as a <code
+class="sourceCode bash"><span class="bu">.</span></code></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>bank.account <span class="ot">&lt;-</span> <span class="dv">20</span> <span class="co">#&quot;period&quot; notation.</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>bankAccount <span class="ot">&lt;-</span><span class="dv">872</span> <span class="co">#camel case.</span></span></code></pre></div>
+</div>
+<div id="basic-data-types" class="section level2">
+<h2>Basic Data Types</h2>
+<p>In R we have a variety of data types like <code
+class="sourceCode bash"><span class="ex">numberic,</span> logical, character</code>,
+etc. We can find out what variables data type is by calling a function
+called <code
+class="sourceCode r"><span class="fu">class</span>()</code></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>var <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>trueVar <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>falseVar <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>myName <span class="ot">&lt;-</span> <span class="st">&quot;Michael Dick&quot;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(var) <span class="co">#outputs: numeric</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(trueVar) <span class="co">#outputs: logical</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(falseVar) <span class="co">#outputs: logical</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(myName) <span class="co">#outputs: character</span></span></code></pre></div>
+</div>
+<div id="vector-basics" class="section level2">
+<h2>Vector Basics</h2>
+<p>Vectors in R are 1-D arrays. The unique thing about these vectors is
+that they can act as a dictionary in Python. To initialize a vector in R
+we use the syntax: <code
+class="sourceCode r">vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span> ,<span class="dv">30</span>)</code>
+where <code class="sourceCode bash"><span class="ex">c</span></code> is
+a a function that combines all of these variables to be a part of this
+array. Now we can associate meaning to certain variable types. Look at
+the following:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>days <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Mon&quot;</span>, <span class="st">&quot;Tues&quot;</span>, <span class="st">&quot;Weds&quot;</span>, <span class="st">&quot;Thurs&quot;</span>, <span class="st">&quot;Fri&quot;</span>, <span class="st">&quot;Sat&quot;</span>, <span class="st">&quot;Sun&quot;</span>) <span class="co">#Array of characters.</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>temps <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">72</span>, <span class="dv">55</span>, <span class="dv">79</span>, <span class="dv">60</span>, <span class="dv">80</span>, <span class="dv">70</span>, <span class="dv">69</span>) <span class="co">#Array of numerics.</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(temps) <span class="ot">&lt;-</span> days <span class="co">#names assigns each item in temps a name from days</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>temps</span></code></pre></div>
+<p><code class="sourceCode bash"><span class="ex">temps</span></code>
+will display the following:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a> Mon  Tues  Weds Thurs   Fri   Sat   Sun </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>   <span class="dv">72</span>    <span class="dv">55</span>    <span class="dv">79</span>    <span class="dv">60</span>    <span class="dv">80</span>    <span class="dv">70</span>    <span class="dv">69</span> </span></code></pre></div>
+</div>
+<div id="vector-indexing-and-slicing" class="section level2">
+<h2>Vector Indexing and Slicing</h2>
+<p>With R it is VERY IMPORTANT to remember that indexing in R starts at
+<code class="sourceCode bash"><span class="ex">1</span></code> rather
+than <code class="sourceCode bash"><span class="ex">0</span></code>.
+There is a few unique things we can perform on vectors. Let’s look at
+sample code:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">300</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>v2 <span class="ot">&lt;-</span> <span class="fu">c</span>(a,b,c) </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>v1[<span class="dv">1</span>] <span class="co">#Returns 100</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>temps[<span class="dv">5</span>] <span class="co">#Returns  Fri </span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#                   80 </span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>temps[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>] <span class="co">#Splicing</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Returns: Tues  Weds Thurs </span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co">#           55    79    60 </span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>temps[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">7</span>)] <span class="co">#Grab index 1 and index 7</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>temps[<span class="st">&quot;Mon&quot;</span>] <span class="co">#Returns the number assoicated with &quot;Mon&quot;</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>temps[<span class="fu">c</span>(<span class="st">&quot;Tues&quot;</span>, <span class="st">&quot;Fri&quot;</span>)]</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">#Filter out values less than 2</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>vnum <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>vchar <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;c&#39;</span>, <span class="st">&#39;d&#39;</span>)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(vnum) <span class="ot">&lt;-</span> vchar</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>vnum[vnum <span class="sc">&gt;</span> <span class="dv">2</span>] <span class="co">#Returns 3 and 4</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>vnum <span class="sc">&gt;</span> <span class="dv">2</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="do">###################################</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>myFilter <span class="ot">&lt;-</span> vnum <span class="sc">&gt;</span> <span class="dv">2</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>vnum[myFilter]</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="do">###################################</span></span></code></pre></div>
+<p>For the <code class="sourceCode r"><span class="co">#</span></code>
+section of this code block you see we assign an array of logical
+operations. We can call this <code
+class="sourceCode bash"><span class="ex">myFiler</span></code>. <code
+class="sourceCode bash"><span class="ex">myFilter</span></code> will
+contain <code
+class="sourceCode r">{<span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>, <span class="cn">TRUE</span>}</code>
+and when we run <code class="sourceCode r">vnum[myFiler]</code> and this
+will return all the numbers that are greater than 2. It produces the
+result:</p>
+<pre class=".code"><code>c d 
+3 4 </code></pre>
+</div>
+<div id="getting-help-in-r" class="section level2">
+<h2>Getting Help in R</h2>
+<p>To get help in R with variable names, functions, etc, you can easily
+do this in two ways. <br> <br> 1. Using <code
+class="sourceCode r"><span class="fu">help</span>()</code>, in the
+parthensis you would add what you need help one. For example, if you
+wanted help with vectors you would type <code
+class="sourceCode r"><span class="fu">help</span>(<span class="st">&quot;vector&quot;</span>)</code>
+in the Console tab in RStudio. <br> <br> 2. Getting help by typing <code
+class="sourceCode bash"><span class="ex">?</span></code> in front of
+what you want help with. Like in the last example, this is what you
+would use if you want to find more information on vectors <code
+class="sourceCode r">?.vectors</code></p>
 </div>
 
 

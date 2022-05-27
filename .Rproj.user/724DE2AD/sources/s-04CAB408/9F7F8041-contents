@@ -2,8 +2,10 @@
 title: "Intro-to-R-Basics-Notes"
 output:
   html_document:
+     ############################# MathJax #############################
     mathjax: local
     self_contained: false
+    ############################# MathJax #############################
     theme: dark
     highlight: breezedark
 date: '2022-05-27'
@@ -20,7 +22,99 @@ output:
 ## Arithmetic in R
 Arithmetic in `R`{.bash} is quite simple. You can run it in the Console or run it line by line in the source file.
 R supports $+,-,/,\cdot,$ and even modular arithmetic. Below are some examples.
+```r
+1+2 #Addition.
+5-2 #Subtraction.
+5*2 #Multiplication.
+5/2 #Division.
+5 %% 2 #Modular Arthimetic.
+(5*2) + (5-3) #Order of operations.
+```
+## Variables
+When it comes to variables in R there is a different assignment operator. This is the arrow operator `<-`{.r}
+Below is how to use this operator on assigning `var`{.bash} the value `5`{.bash}.
+```r
+var <- 5 #5 is now stored as the variable "var."
+```
+The naming convention in R is variables are either camel case, or the space between words is represented as a `.`{.bash}
+```r
+bank.account <- 20 #"period" notation.
+bankAccount <-872 #camel case.
+```
+## Basic Data Types
+In R we have a variety of data types like `numberic, logical, character`{.bash}, etc. We can find out what variables data type is by calling a function called `class()`{.r}
+```r
+var <- 100
+trueVar <- TRUE
+falseVar <- FALSE
+myName <- "Michael Dick"
+class(var) #outputs: numeric
+class(trueVar) #outputs: logical
+class(falseVar) #outputs: logical
+class(myName) #outputs: character
+```
+## Vector Basics
+Vectors in R are 1-D arrays. The unique thing about these vectors is that they can act as a dictionary in Python. To initialize a vector in R we use the syntax: `vec <- c(10, 20 ,30)`{.r} where `c`{.bash} is a a function that combines all of these variables to be a part of this array. Now we can associate meaning to certain variable types. Look at the following:
+```r
+days <- c("Mon", "Tues", "Weds", "Thurs", "Fri", "Sat", "Sun") #Array of characters.
+temps <- c(72, 55, 79, 60, 80, 70, 69) #Array of numerics.
+names(temps) <- days #names assigns each item in temps a name from days
+temps
+```
+`temps`{.bash} will display the following:
+```r
+ Mon  Tues  Weds Thurs   Fri   Sat   Sun 
+   72    55    79    60    80    70    69 
+```
+
+## Vector Indexing and Slicing
+With R it is VERY IMPORTANT to remember that indexing in R starts at `1`{.bash} rather than `0`{.bash}. There is a few unique things we can perform on vectors. Let's look at sample code:
+```r
+v1 <- c(100,200,300)
+v2 <- c(a,b,c) 
+v1[1] #Returns 100
+temps[5] #Returns  Fri 
+#                   80 
+temps[2:4] #Splicing
+#Returns: Tues  Weds Thurs 
+#           55    79    60 
+temps[c(1,7)] #Grab index 1 and index 7
+temps["Mon"] #Returns the number assoicated with "Mon"
+temps[c("Tues", "Fri")]
+#Filter out values less than 2
+vnum <- c(1,2,3,4)
+vchar <- c('a', 'b', 'c', 'd')
+names(vnum) <- vchar
+vnum[vnum > 2] #Returns 3 and 4
+vnum > 2
+###################################
+myFilter <- vnum > 2
+vnum[myFilter]
+###################################
+```
+For the `#`{.R} section of this code block you see we assign an array of logical operations. We can call this `myFiler`{.bash}. `myFilter`{.bash} will contain `{FALSE, FALSE, TRUE, TRUE}`{.R} and when we run `vnum[myFiler]`{.R} and this will return all the numbers that are greater than 2. It produces the result: 
+```.code
+c d 
+3 4 
+```
+## Getting Help in R
+To get help in R with variable names, functions, etc, you can easily do this in two ways.
+<br>
+<br>
+1. Using `help()`{.R}, in the parthensis you would add what you need help one. For example, if you wanted help with vectors you would type `help("vector")`{.R} in the Console tab in RStudio.
+<br>
+<br>
+2. Getting help by typing `?`{.bash} in front of what you want help with. Like in the last example, this is what you would use if you want to find more information on vectors `?.vectors`{.R}
+
+
+
+
+
+
+
+
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-#
+
