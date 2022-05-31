@@ -106,11 +106,95 @@ To get help in R with variable names, functions, etc, you can easily do this in 
 <br>
 2. Getting help by typing `?`{.bash} in front of what you want help with. Like in the last example, this is what you would use if you want to find more information on vectors `?.vectors`{.bash}
 
+## Matricies in R
 
+When building matricies we will use the built-in function `matrix()`{.bash}
 
+### Syntax for `matrix()`{.bash}
+```r
+matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)
+```
+`data`{.bash} is what we are going to store in the matrix. By default it will store each entry as a row item. We can specify the number of rows by using `nrow`{.bash} when typing the matrix function. We can specify the number of columns we want by using `ncol`{.bash} when filling in the parameters of `matrix()`{.bash}. `byrom`{.bash} is a parameter in `matrix`{.bash} that is false by default, and this organizes the data fed into the matrix by row rather than column.
 
+### Naming the Rows and the Columns
 
+Let's work by example. We want to create a calendar with the days we are "On," and the days we are "Off."
 
+```r
+week1 <- c("On", "On", "Off", "On", "On")
+week2 <- c("Off", "Off", "Off", "On", "On")
+week3 <- c("On", "On", "On", "On", "On")
+week4 <- c("Off", "Off", "On", "Off", "Off")
+#Creating a 1D array of variables#
+month <- c(week1, week2, week3, week4)
+#Naming the matrix workMonth from the 1D array "month"#
+workMonth <- matrix(month, ncol = 5, nrow = 4, byrow = TRUE)
+#Naming columns from the days array.#
+colnames(workMonth) <- days
+workweek <- c('1','2','3','4')
+#Naming the rows from the workweek vector.#
+rownames(workMonth) <- workweek
+workMonth
+```
+## Adding Rows and Columns to a Matrix
+
+There is two new ideas here: `cbind`{.bash} and `rbind`{.bash}. For the syntax for each of these: `rbind(matrixName, rowName)`{.r}
+
+```r
+#Exam scores#
+eecs183 <- c(93,100,39,55,29,42)
+eecs203 <- c(100,23,37,56,98,78)
+eecs280 <- c(100,23,94,25,82,45)
+eecs281 <- c(81,54,73,65,55,47)
+#Putting the class name into a vector#
+grades <- c (eecs183, eecs203, eecs280, eecs281)
+#Making a matrix to display grades as a table or 2D array#
+gradesMatrix <- matrix(grades, nrow = 4, byrow = TRUE)
+#Naming rows-start#
+classes <- c("EECS183","EECS203","EECS280","EECS281")
+rownames(gradesMatrix) <- classes
+#Naming rows-end#
+#Naming cols-start#
+examNum <- c(1,2,3,4,5,6)
+colnames(gradesMatrix) <- examNum
+#Naming cols-end#
+
+#Displays the sum for EACH column#
+colSums(gradesMatrix)
+rowSums(gradesMatrix)
+rowMeans(gradesMatrix)
+
+#Adding columns and rows to a matrix#
+eecs370 <- c(78,88,21,55,91)
+#Matrix name is to the right and name of row is the left.#
+updatedGrades <- rbind(gradesMatrix, eecs370)
+#Adding a column named average#
+average <- rowMeans(updatedGrades)
+updatedGrades <- cbind(updatedGrades, average)
+updatedGrades
+
+```
+## Factor and Categorical Matrices
+Using R you can give a vector a certain order. When it comes to the idea of, say, that hot is better than cold, how can we show this? Using a function called `factor`{.bash} we can assign this kind of order. Let's look at this example:
+```r
+animal <- c("dog", "cat", "dog", "cat", "cat")
+#ID Number for dog and cat.#
+idNum <- c(1,2,3,4,5)
+factor(animal)
+#Levels cat and dog are now assigned to animal vector.#
+factorAnimal <- factor(animal)
+#Nominal means there is no order. Ordinal means there is an order.
+
+#Here is an order: cold < med < hot.
+temps <- c("cold", "med", "hot", "hot", "hot", "cold", "med")
+#We give factor the vector list, tell that this is ordered#
+#, and now give the factor function the order that we want.#
+factTemps <- factor(temps, ordered = TRUE, levels = c("cold", "med", "hot"))
+factTemps
+#Prints the number of times each word is present in the vector.#
+summary(factTemps)
+
+```
 
 
 
